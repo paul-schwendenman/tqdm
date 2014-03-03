@@ -26,19 +26,19 @@ def format_meter(n, total, elapsed):
     if total:
         frac = float(n) / total
         
-        N_BARS = 10
+        N_BARS = 30
         bar_length = int(frac*N_BARS)
-        bar = '#'*bar_length + '-'*(N_BARS-bar_length)
+        bar = '*'*bar_length + ' '*(N_BARS-bar_length)
         
         percentage = '%3d%%' % (frac * 100)
         
         left_str = format_interval(elapsed / n * (total-n)) if n else '?'
         
-        return '|%s| %d/%d %s [elapsed: %s left: %s, %s iters/sec]' % (
+        return '[%s] %d/%d %s [%s, %s, %s #/s]' % (
             bar, n, total, percentage, elapsed_str, left_str, rate)
     
     else:
-        return '%d [elapsed: %s, %s iters/sec]' % (n, elapsed_str, rate)
+        return '%d [%s, %s #/s]' % (n, elapsed_str, rate)
 
 
 class StatusPrinter(object):
