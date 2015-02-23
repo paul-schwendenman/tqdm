@@ -48,3 +48,7 @@ def tqdm(iterable, desc='', total=None, leave=False, mininterval=0.5, miniters=1
     since the last progress meter update, it is not updated again.
     """
 ```
+
+Installation instructions:
+
+pip install git+https://github.com/paul-schwendenman/tqdm.git
