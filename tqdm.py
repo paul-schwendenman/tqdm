@@ -19,24 +19,24 @@ def format_meter(n, total, elapsed):
     # elapsed - number of seconds passed since start
     if n > total:
         total = None
-    
+
     elapsed_str = format_interval(elapsed)
     rate = '%5.2f' % (n / elapsed) if elapsed else '?'
-    
+
     if total:
         frac = float(n) / total
-        
+
         N_BARS = 30
         bar_length = int(frac*N_BARS)
         bar = '*'*bar_length + ' '*(N_BARS-bar_length)
-        
+
         percentage = '%3d%%' % (frac * 100)
-        
+
         left_str = format_interval(elapsed / n * (total-n)) if n else '?'
-        
+
         return '[%s] %d/%d %s [%s, %s, %s #/s]' % (
             bar, n, total, percentage, elapsed_str, left_str, rate)
-    
+
     else:
         return '%d [%s, %s #/s]' % (n, elapsed_str, rate)
 
@@ -45,7 +45,7 @@ class StatusPrinter(object):
     def __init__(self, file):
         self.file = file
         self.last_printed_len = 0
-    
+
     def print_status(self, s):
         self.file.write('\r'+s+' '*max(self.last_printed_len-len(s), 0))
         self.file.flush()
@@ -73,12 +73,12 @@ def tqdm(iterable, desc='', total=None, leave=False, file=sys.stderr,
             total = len(iterable)
         except TypeError:
             total = None
-    
+
     prefix = desc+': ' if desc else ''
-    
+
     sp = StatusPrinter(file)
     sp.print_status(prefix + format_meter(0, total, 0))
-    
+
     start_t = last_print_t = time.time()
     last_print_n = 0
     n = 0
@@ -93,7 +93,7 @@ def tqdm(iterable, desc='', total=None, leave=False, file=sys.stderr,
                 sp.print_status(prefix + format_meter(n, total, cur_t-start_t))
                 last_print_n = n
                 last_print_t = cur_t
-    
+
     if not leave:
         sp.print_status('')
         sys.stdout.write('\r')
