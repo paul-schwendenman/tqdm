@@ -26,7 +26,7 @@ def format_meter(n, total, elapsed):
     if total:
         frac = float(n) / total
 
-        N_BARS = 30
+        N_BARS = 40
         bar_length = int(frac*N_BARS)
         bar = '*'*bar_length + ' '*(N_BARS-bar_length)
 
@@ -47,7 +47,7 @@ class StatusPrinter(object):
         self.last_printed_len = 0
 
     def print_status(self, s):
-        self.file.write('\r'+s+' '*max(self.last_printed_len-len(s), 0))
+        self.file.write('\b'*self.last_printed_len+s)
         self.file.flush()
         self.last_printed_len = len(s)
 
