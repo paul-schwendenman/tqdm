@@ -7,8 +7,6 @@ Instantly make your loops show a progress meter - just wrap any iterator with "t
 
 tqdm (read ta<i>qa</i>dum, تقدّم) means "progress" in arabic.
 
-You can also use trange(N) as a shortcut for tqdm(xrange(N))
-
 Here's the doc:
 
 ```python
@@ -26,8 +24,4 @@ def tqdm(iterable, desc='', total=None, leave=False, mininterval=0.5, miniters=1
     If less than mininterval seconds or miniters iterations have passed since
     the last progress meter update, it is not updated again.
     """
-
-def trange(*args, **kwargs):
-    """A shortcut for writing tqdm(xrange)"""
-    return tqdm(xrange(*args), **kwargs)
 ```

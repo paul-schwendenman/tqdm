@@ -102,13 +102,3 @@ def tqdm(iterable, desc='', total=None, leave=False, file=sys.stderr,
             cur_t = time.time()
             sp.print_status(prefix + format_meter(n, total, cur_t-start_t))
         file.write('\n')
-
-
-def trange(*args, **kwargs):
-    """A shortcut for writing tqdm(range()) on py3 or tqdm(xrange()) on py2"""
-    try:
-        f = xrange
-    except NameError:
-        f = range
-    
-    return tqdm(f(*args), **kwargs)
