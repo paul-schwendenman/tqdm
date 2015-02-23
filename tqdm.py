@@ -1,4 +1,4 @@
-__all__ = ['tqdm', 'trange']
+__all__ = ['tqdm']
 
 import sys
 import time
