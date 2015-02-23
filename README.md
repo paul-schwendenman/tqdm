@@ -3,8 +3,6 @@ tqdm
 
 Instantly make your loops show a progress meter - just wrap any iterator with "tqdm(iterator)", and you're done!
 
-![ScreenShot](https://i.imgur.com/he9Aw5C.gif)
-
 tqdm (read ta<i>qa</i>dum, تقدّم) means "progress" in arabic.
 
 Here's the doc:
