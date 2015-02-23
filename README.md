@@ -4,10 +4,10 @@ tqdm
 Instantly make your loops show a progress meter - just wrap any iterable
 with "tqdm(iterable)", and you're done!
 
-tqdm (read ta<i>qa</i>dum, تقدّم) means "progress" in arabic.
+tqdm (read ta<i>qa</i>dum, تقدّم) means "progress" in Arabic.
 
 
-Here's an example of what the outout looks like:
+Here's an example of what the output looks like:
 
 ```python
 >>> import time
